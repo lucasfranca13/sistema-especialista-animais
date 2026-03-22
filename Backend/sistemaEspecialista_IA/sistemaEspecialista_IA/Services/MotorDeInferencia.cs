@@ -24,7 +24,7 @@ namespace sistemaEspecialista_IA.Services
             var regrasDisparadas = new List<string>();
             bool novaConclusaoGerada;
 
-            // 1. O Laço do Encadeamento para Frente
+            // O Laço do Encadeamento para Frente
             do
             {
                 novaConclusaoGerada = false;
@@ -48,7 +48,7 @@ namespace sistemaEspecialista_IA.Services
                 }
             } while (novaConclusaoGerada);
 
-            // 2. Trava de Segurança Biológica (Impede "Frankensteins")
+            
             var classesBiologicas = new List<string> { "e_mamifero", "e_ave", "e_reptil", "e_anfibio", "e_peixe" };
             var classesAtivadas = fatosAtivos.Intersect(classesBiologicas).ToList();
 
@@ -61,7 +61,7 @@ namespace sistemaEspecialista_IA.Services
                 };
             }
 
-            // 3. Retorna o resultado normal
+            // Retorna o resultado normal
             return new ResultadoInferencia
             {
                 FatosFinais = fatosAtivos.ToList(),
