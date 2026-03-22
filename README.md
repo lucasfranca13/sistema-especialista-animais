@@ -15,16 +15,15 @@ O repositório está estruturado em um *Monorepo*, separando claramente as respo
 
 - 📁 **`backend/`**: API RESTful em C# (.NET) responsável pelo Motor de Inferência, Base de Conhecimento (SQLite) e validação lógica.
 - 📁 **`frontend/`**: Aplicação Web Single Page (SPA) em React e Tailwind CSS, responsável por uma interface interativa e amigável.
-
+<br>
 ## ✨ Principais Funcionalidades
 
 1. **Motor de Inferência Puro:** Algoritmo C# que processa as regras ciclicamente até esgotar as deduções possíveis.
 2. **Prevenção de Conflitos (Trava Lógica):** O backend identifica "Frankensteins" biológicos. Se o usuário informar características incompatíveis (ex: Ave e Mamífero simultaneamente), o sistema barra a inferência nativamente e retorna um erro de domínio lógico.
 3. **Motor de Explicação:** A interface exibe exatamente a trilha do raciocínio, justificando como a conclusão foi alcançada.
 4. **Base Consistente (25 Animais):** Base de conhecimento robusta dividida em 5 classes biológicas primárias (Mamíferos, Aves, Répteis, Anfíbios e Peixes) sem ambiguidades.
-
-
-
+<br>
+<br>
 
 ## 🚀 Como Executar o Projeto (Passo a Passo)
 
