@@ -23,11 +23,57 @@ O repositório está estruturado em um *Monorepo*, separando claramente as respo
 3. **Motor de Explicação:** A interface exibe exatamente a trilha do raciocínio, justificando como a conclusão foi alcançada.
 4. **Base Consistente (25 Animais):** Base de conhecimento robusta dividida em 5 classes biológicas primárias (Mamíferos, Aves, Répteis, Anfíbios e Peixes) sem ambiguidades.
 
+
+
+
 ## 🚀 Como Executar o Projeto (Passo a Passo)
 
-Para rodar o projeto localmente, você precisará do [Node.js](https://nodejs.org/) e do [.NET 8 SDK](https://dotnet.microsoft.com/download) instalados na sua máquina.
+### Pré-requisitos
+Certifique-se de ter instalado em sua máquina:
+- [.NET 8 SDK](https://dotnet.microsoft.com/download)
+- [Node.js](https://nodejs.org/)
 
-Faça o clone do repositório:
+### ⚙️ 1. Configurando e Rodando o Backend (API C#)
+
+Abra o terminal na raiz do projeto e navegue até a pasta do backend:
+
 ```bash
-git clone [https://github.com/SeuUsuario/NomeDoRepositorio.git](https://github.com/SeuUsuario/NomeDoRepositorio.git)
-cd NomeDoRepositorio
+cd backend
+```
+
+Restaure as dependências e crie o banco de dados SQLite com as regras. Para isso, abra o termial da IDE e execute os seguitens comandos:
+
+```bash
+dotnet restore
+dotnet ef database update
+```
+
+Inicie o servidor da API. Também no terminal, execute o comando:
+
+```bash
+dotnet run
+```
+> **Aviso:** A API ficará rodando (geralmente na porta `https://localhost:7273`). Deixe este terminal aberto.
+
+### 💻 2. Configurando e Rodando o Frontend
+
+Abra um **novo terminal** na raiz do projeto (mantendo o do backend aberto) e navegue até a pasta do frontend:
+
+```bash
+cd frontend
+```
+
+Instale as dependências do Node:
+
+```bash
+npm install
+```
+
+Inicie o servidor de desenvolvimento do React:
+
+```bash
+npm run dev
+```
+> **Acesso:** O terminal mostrará um link local (geralmente `http://localhost:5173`). Clique nele ou cole no seu navegador para utilizar o sistema.
+
+---
