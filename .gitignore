@@ -1,0 +1,12 @@
+# Ignorar dependências do Node (React)
+node_modules/
+dist/
+
+# Ignorar pastas de compilação do C# (.NET)
+bin/
+obj/
+.vs/
+
+# Ignorar arquivos de banco de dados locais 
+*.db
+*.sqlite
