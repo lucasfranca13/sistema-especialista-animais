@@ -9,7 +9,7 @@ namespace sistemaEspecialista_IA.Controllers
     {
         private readonly MotorDeInferencia _motor;
 
-        // O .NET injeta o motor automaticamente aqui
+        
         public InferenciaController(MotorDeInferencia motor)
         {
             _motor = motor;
@@ -24,7 +24,7 @@ namespace sistemaEspecialista_IA.Controllers
                 return BadRequest("Nenhum fato foi enviado para análise.");
             }
 
-            // Chama o algoritmo de Encadeamento para Frente
+            
             var resultado = await _motor.ExecutarInferenciaAsync(fatosIniciais);
 
             return Ok(resultado);
