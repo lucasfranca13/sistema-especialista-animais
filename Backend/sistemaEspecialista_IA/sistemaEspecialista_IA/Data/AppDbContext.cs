@@ -27,12 +27,12 @@ namespace sistemaEspecialista_IA.Data
                 .HasForeignKey(rc => rc.FatoId);
 
             // ==========================================
-            // BASE DE CONHECIMENTO (25 Animais Populares)
+            // BASE DE CONHECIMENTO (25 Animais)
             // ==========================================
 
-            // 1. FATOS
+            // FATOS
             modelBuilder.Entity<Fato>().HasData(
-                // Características Básicas (IDs 1-6)
+                // Características Básicas
                 new Fato { Id = 1, Chave = "tem_pelos", Descricao = "Tem pelos" },
                 new Fato { Id = 2, Chave = "da_leite", Descricao = "Dá leite" },
                 new Fato { Id = 3, Chave = "tem_penas", Descricao = "Tem penas" },
@@ -40,7 +40,7 @@ namespace sistemaEspecialista_IA.Data
                 new Fato { Id = 5, Chave = "respira_agua", Descricao = "Respira debaixo d'água" },
                 new Fato { Id = 6, Chave = "tem_escamas", Descricao = "Tem escamas" },
 
-                // Características Únicas / Secundárias (IDs 7-31)
+                // Características Unicas / Secundárias
                 new Fato { Id = 7, Chave = "late", Descricao = "Late" },
                 new Fato { Id = 8, Chave = "mia", Descricao = "Mia" },
                 new Fato { Id = 9, Chave = "muge", Descricao = "Muge" },
@@ -67,14 +67,14 @@ namespace sistemaEspecialista_IA.Data
                 new Fato { Id = 30, Chave = "faz_croac", Descricao = "Faz croac" },
                 new Fato { Id = 31, Chave = "cor_laranja_branca", Descricao = "Cor laranja e branca" },
 
-                // Categorias Intermediárias (IDs 32-36)
+                // Categorias Intermediárias
                 new Fato { Id = 32, Chave = "e_mamifero", Descricao = "É Mamífero" },
                 new Fato { Id = 33, Chave = "e_ave", Descricao = "É Ave" },
                 new Fato { Id = 34, Chave = "e_reptil", Descricao = "É Réptil" },
                 new Fato { Id = 35, Chave = "e_anfibio", Descricao = "É Anfíbio" },
                 new Fato { Id = 36, Chave = "e_peixe", Descricao = "É Peixe" },
 
-                // Conclusões Finais - Os 25 Animais (IDs 37-61)
+                // Conclusões Finais - Os 25 Animais
                 new Fato { Id = 37, Chave = "cachorro", Descricao = "Cachorro" },
                 new Fato { Id = 38, Chave = "gato", Descricao = "Gato" },
                 new Fato { Id = 39, Chave = "vaca", Descricao = "Vaca" },
@@ -102,7 +102,7 @@ namespace sistemaEspecialista_IA.Data
                 new Fato { Id = 61, Chave = "peixe_palhaco", Descricao = "Peixe-Palhaço" }
             );
 
-            // 2. REGRAS
+            // REGRAS
             modelBuilder.Entity<Regra>().HasData(
                 // Regras Base (Classes)
                 new Regra { Id = 1, NomeDaRegra = "R1", ConclusaoFatoId = 32 }, // Mamífero (pelos)
@@ -145,7 +145,7 @@ namespace sistemaEspecialista_IA.Data
                 new Regra { Id = 61, NomeDaRegra = "R61", ConclusaoFatoId = 61 }  // Peixe-Palhaço
             );
 
-            // 3. CONDIÇÕES
+            // CONDIÇÕES
             modelBuilder.Entity<RegraCondicao>().HasData(
                 // Condições Base
                 new RegraCondicao { RegraId = 1, FatoId = 1 }, // Tem pelos -> Mamífero
@@ -156,7 +156,7 @@ namespace sistemaEspecialista_IA.Data
                 new RegraCondicao { RegraId = 6, FatoId = 6 }, // Tem escamas -> Réptil
                 new RegraCondicao { RegraId = 7, FatoId = 29 }, // Casco duro -> Réptil
 
-                // Condições Mamíferos (ID Fato 32 = "e_mamifero")
+                // Condições Mamíferos
                 new RegraCondicao { RegraId = 10, FatoId = 32 }, new RegraCondicao { RegraId = 10, FatoId = 7 }, // Cachorro
                 new RegraCondicao { RegraId = 11, FatoId = 32 }, new RegraCondicao { RegraId = 11, FatoId = 8 }, // Gato
                 new RegraCondicao { RegraId = 12, FatoId = 32 }, new RegraCondicao { RegraId = 12, FatoId = 9 }, // Vaca
@@ -172,19 +172,19 @@ namespace sistemaEspecialista_IA.Data
                 new RegraCondicao { RegraId = 22, FatoId = 32 }, new RegraCondicao { RegraId = 22, FatoId = 17 }, // Baleia
                 new RegraCondicao { RegraId = 23, FatoId = 32 }, new RegraCondicao { RegraId = 23, FatoId = 19 }, // Zebra
 
-                // Condições Aves (ID Fato 33 = "e_ave")
+                // Condições Aves
                 new RegraCondicao { RegraId = 30, FatoId = 33 }, new RegraCondicao { RegraId = 30, FatoId = 21 }, // Galinha
                 new RegraCondicao { RegraId = 31, FatoId = 33 }, new RegraCondicao { RegraId = 31, FatoId = 22 }, // Pato
                 new RegraCondicao { RegraId = 32, FatoId = 33 }, new RegraCondicao { RegraId = 32, FatoId = 23 }, new RegraCondicao { RegraId = 32, FatoId = 24 }, // Avestruz
                 new RegraCondicao { RegraId = 33, FatoId = 33 }, new RegraCondicao { RegraId = 33, FatoId = 25 }, // Pinguim
                 new RegraCondicao { RegraId = 34, FatoId = 33 }, new RegraCondicao { RegraId = 34, FatoId = 26 }, // Águia
 
-                // Condições Répteis (ID Fato 34 = "e_reptil")
+                // Condições Répteis
                 new RegraCondicao { RegraId = 40, FatoId = 34 }, new RegraCondicao { RegraId = 40, FatoId = 27 }, // Crocodilo
                 new RegraCondicao { RegraId = 41, FatoId = 34 }, new RegraCondicao { RegraId = 41, FatoId = 28 }, // Cobra
                 new RegraCondicao { RegraId = 42, FatoId = 34 }, new RegraCondicao { RegraId = 42, FatoId = 29 }, // Tartaruga
 
-                // Condições Anfíbios e Peixes (IDs 35 e 36)
+                // Condições Anfíbios e Peixes 
                 new RegraCondicao { RegraId = 50, FatoId = 35 }, new RegraCondicao { RegraId = 50, FatoId = 30 }, // Sapo
                 new RegraCondicao { RegraId = 60, FatoId = 36 }, new RegraCondicao { RegraId = 60, FatoId = 27 }, // Tubarão
                 new RegraCondicao { RegraId = 61, FatoId = 36 }, new RegraCondicao { RegraId = 61, FatoId = 31 }  // Peixe-Palhaço
